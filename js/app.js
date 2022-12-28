@@ -41,25 +41,10 @@ function todoTime() {
     h < 10 ? h = "0" + h : h
     return `<span>${day}.</span><span>${month}.</span><span>${year}, </span><span>${h}:</span><span>${m}:</span><span>${s}</span>`
 }
-for (let i = 0; i < addlist.length; i++) {
-    let img = document.createElement('img')
-    img.className = 'trash'
-    addlist[i].appendChild(img)
-    document.querySelector('img').src = 'image/trash.png'
-}
 
 btn.addEventListener('click', function (e) {
     e.preventDefault()
     let input = document.querySelector('.input').value
-
-
-    // let span = document.createElement('p')
-    // let timeTodo = document.createElement('span')
-    // timeTodo.classList.add('todoTime')
-    // timeTodo.innerHTML = todoTime()
-    // li.appendChild(span)
-    // li.appendChild(timeTodo)
-    // span.appendChild(inputvalue)
     if (input === '') {
         document.querySelector('p').innerHTML = 'Text kiriting!!!'
         document.querySelector('p').style = `
@@ -71,10 +56,6 @@ btn.addEventListener('click', function (e) {
         add(input)
     }
     document.querySelector('input').value = ''
-    // let img = document.createElement('img')
-    // img.className = 'trash'
-    // img.src = 'image/trash.png'
-    // li.appendChild(img)
     for (let i = 0; i < active.length; i++) {
         active[i].onclick = function () {
             active[i].classList.toggle('active')
@@ -89,7 +70,7 @@ function create(todos) {
         li.innerHTML = `
         <p>${item.text}</p>
         <span class="todoTime">${item.time}</span>
-        <img src="image/trash.png" class="trash">
+        <img src="./image/trash.png" class="trash">
         `
         document.querySelector('.todo-list').appendChild(li);
     })
@@ -102,7 +83,7 @@ function add(input) {
     li.innerHTML = `
         <p>${input}</p>
         <span class="todoTime">${itemTime}</span>
-        <img src="image/trash.png" class="trash">
+        <img src="./image/trash.png" class="trash">
         `
     document.querySelector('.todo-list').appendChild(li);
     setTodos()
